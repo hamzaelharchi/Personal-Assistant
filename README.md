@@ -3,8 +3,14 @@ Personal-assitant Web application
 
 #create virtual environment
 
-- python -m venv personal_assistant
-activate env
-- personal_assistant\Scripts\activate.bat
+- python -m venv venv
+activate environment
+- venv\Scripts\activate.bat
 
--pip freeze
+desactivate environment
+- deactivate
+
+- pip freeze
+
+start django project
+- django-admin startproject assistant .
