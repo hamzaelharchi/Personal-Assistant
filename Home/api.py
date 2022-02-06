@@ -17,3 +17,14 @@ def user_detail_api(request, id):
     user_detail=User.objects.get(id=id)
     data=UserSerializer(user_detail).data
     return Response({'data':data})
+
+
+
+
+
+
+
+
+
+
+
