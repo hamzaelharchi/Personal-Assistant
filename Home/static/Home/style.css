@@ -1,0 +1,111 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,400;1,700&display=swap');
+ */
+ *{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+    
+    
+}
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+
+.dark-mode{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(40, 44, 94);
+}
+
+#weather{
+    margin: 60px;
+    background-color: rgb(171, 204, 25);
+    width: 25em;
+    border-radius: 10px;
+    height: 400px;
+
+}
+
+#chat{
+    margin: 60px;
+    background-color: rgb(53, 133, 204);
+    width: 40em;
+    border-radius: 10px;
+    height: 700px;
+
+}
+
+#todo{
+    margin: 60px;
+    background-color: black;
+    width: 25em;
+    border-radius: 10px;
+    height: 600px;
+
+}
+
+#music{
+    margin-top: -250px;
+    margin-left: 60px;
+    margin-right: 100px;
+    background-color: green;
+    width: 25em;
+    border-radius: 10px;
+    height: 300px;
+
+}
+
+#rating{
+    margin-top: 0px;
+    margin-left: 120px ;
+    margin-right: 120px ;
+    background-color: red;
+    width: 25em;
+    border-radius: 10px;
+    height: 100px;
+
+}
+#time{
+    margin-top: 0px;
+    margin-left: 120px ;
+    background-color: teal;
+    width: 25em;
+    border-radius: 10px;
+    height: 100px;
+
+}
+
+#logout-mode{
+    height: 100px;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+
+
+}
+
+#logout{
+    margin-left: 15px;  
+}
+
+#mode{
+    margin-left: 30px;
+    
+}
+
+#logout-img{
+    font-size: 1.7em;
+}
+#mode-img{
+    margin-top: 15px;
+    font-size: 1.7em;
+}
