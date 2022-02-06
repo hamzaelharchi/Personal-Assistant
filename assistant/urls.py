@@ -20,6 +20,12 @@ from Home import views as user_views
 urlpatterns = [
     path('Home/', include('Home.urls')),
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('register/',user_views.register,name='register'),
+=======
+    path('api-auth/', include('rest_framework.urls'))
+    path('register/',user_views.register,name='register')
+]
+>>>>>>> 1cd4ad5b126af250b3f9966470e9a6ac3c170a00
 
 ]
