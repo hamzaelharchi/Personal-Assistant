@@ -16,15 +16,6 @@
                 Already Have An Account? <a class="ml-2" href="#">Sign In</a>
             </small>
         </div>
-        <div class="col-md-8">
-            {% if messages %}
-              {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-            {% block content %}{% endblock %}
-          </div>
+        
     </div>
 {% endblock content %}
