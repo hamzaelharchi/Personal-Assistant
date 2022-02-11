@@ -4,11 +4,9 @@ from . import views
 from . import api
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('index', views.index, name='index'),
+    path("register/", views.register_req, name="register"),
+    path("login/", views.login_req, name="login"),
 
-    #api
-    path('api/users', api.user_list_api, name='user_list_api'),
-    path('api/users/<int:id>', api.user_detail_api, name='user_detail_api'),
-    
 ]
 
