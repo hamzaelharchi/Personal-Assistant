@@ -1,8 +1,12 @@
-from dataclasses import fields
 from rest_framework import serializers
-from .models import User
+from .models import Task, Chat
 
-class UserSerializer(serializers.ModelSerializer):
+class TaskSerializer(serializers.ModelSerializer):
     class Meta:
-        model=User
+        model=Task
+        fields='__all__'
+
+class ChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Chat
         fields='__all__'
