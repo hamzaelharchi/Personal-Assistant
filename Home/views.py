@@ -8,6 +8,16 @@ def index(request):
     return render(request, 'Home/index.html')
 
 
+
+
+def recordings(request):
+    if request.method == 'POST':
+        data = request.get_json()
+        print(f">>>>>>>>>>>>>>>{data}")
+        answer = 'assistant.bot(str(voice_clip))'
+        print(f'answer: {answer}')
+        return {"answer": answer}
+
 def register_req(request):
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
@@ -37,3 +47,4 @@ def login_req(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request=request, template_name="Home/login.html", context={"login_form":form})
+
