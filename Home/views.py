@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate #add this
 from django.contrib.auth.forms import AuthenticationForm #add this
 
 def index(request):
-    return render(request, 'Home/index.html')
+    return render(request, '/Home/index.html')
 
 
 def register_req(request):
