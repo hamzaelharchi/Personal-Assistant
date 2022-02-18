@@ -47,7 +47,7 @@ tensorflow==2.8.0rc1
 tensorflow-io-gcs-filesystem==0.23.1
 termcolor==1.1.0
 tf-estimator-nightly==2.8.0.dev2021122109
-typing_extensions==4.0.1
+typing-extensions==4.0.1
 tzdata==2021.5
 urllib3==1.26.8
 Werkzeug==2.0.2
