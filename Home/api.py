@@ -1,9 +1,11 @@
 #views
+import re
 from .models import Task, Chat
 from .serializer import  TaskSerializer, ChatSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
+import speech_recognition as sr
 
 '''
 @api_view(['GET', 'POST'])
@@ -74,19 +76,48 @@ def taskDelete(request, pk):
 	return Response('Item succsesfully delete!')
 
 
+import base64
 
-
+import speech_recognition as sr
 
 @api_view(['POST', 'GET'])
 def chatCreate(request):
-	serializer = ChatSerializer(data=request.data)
 	
-	if serializer.is_valid():
-		serializer.save()
+	print(type(request.data))
+	
+	
+	
+	r=request.data[22:]
+	
+	r=bytes(r, 'utf-8')
+	wav_file = open("record.wav", "wb")
+	decode_string = base64.b64decode(r)
+	wav_file.write(decode_string)
+	
+	
 
-		print(serializer.data)
-	
-	return Response(serializer.data)
+	# Initialize recognizer class (for recognizing the speech)
+	r = sr.Recognizer()
+
+	# Reading Audio file as source
+	# listening the audio file and store in audio_text variable
+
+	with sr.AudioFile('record.wav') as source:
+		
+		audio_text = r.listen(source)
+		
+	# recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
+		try:
+			
+			# using google speech recognition
+			text = r.recognize_google(audio_text)
+			print('Converting audio transcripts into text ...')
+			print(text)
+		
+		except:
+			print('Sorry.. run again...')
+		
+		return Response('hi hi hi')
 
 
 @api_view(['GET'])
