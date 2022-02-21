@@ -112,4 +112,3 @@ def chatCreate(request):
 
 	return Response(serializer.data)
 	'''
-
