@@ -79,7 +79,6 @@ def taskDelete(request, pk):
 
 import base64
 
-import speech_recognition as sr
 
 @api_view(['POST', 'GET'])
 def chatCreate(request):
@@ -143,4 +142,3 @@ def chatCreate(request):
 
 	return Response(serializer.data)
 	'''
-

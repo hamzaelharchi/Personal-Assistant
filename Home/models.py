@@ -14,5 +14,7 @@ class Task(models.Model):
 class Chat(models.Model):
     message=models.TextField(max_length=500000)
 
-    def __str__(self):
+    def __str__(self): 
         return self.message
+
+
