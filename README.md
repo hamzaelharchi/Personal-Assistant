@@ -8,7 +8,7 @@ activate environment
 - venv\Scripts\activate.bat
 
 desactivate environment
-- deactivate
+- deactivate 
 
 - pip freeze > requirements.txt
 
