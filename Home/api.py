@@ -77,48 +77,52 @@ def taskDelete(request, pk):
 	return Response('Item succsesfully delete!')
 
 
+
+
+
+
+@api_view(['GET'])
+def chatList(request):
+	chat = Chat.objects.all().order_by('-id')
+	serializer = ChatSerializer(chat, many=True)
+	return Response(serializer.data)
+
+@api_view(['GET'])
+def chatDetail(request, pk):
+	chat = Chat.objects.get(id=pk)
+	serializer = ChatSerializer(chat, many=False)
+	return Response(serializer.data)
+
+
 import base64
 
 import speech_recognition as sr
 
 @api_view(['POST', 'GET'])
 def chatCreate(request):
-	
-	print(type(request.data))
-	
-	
-	
 	r=request.data[22:]
-	
 	r=bytes(r, 'utf-8')
 	wav_file = open("record.wav", "wb")
 	decode_string = base64.b64decode(r)
 	wav_file.write(decode_string)
 	
-	
-
 	# Initialize recognizer class (for recognizing the speech)
 	r = sr.Recognizer()
 
 	# Reading Audio file as source
-	# listening the audio file and store in audio_text variable
 
 	with sr.AudioFile('record.wav') as source:
-		
 		audio_text = r.listen(source)
 		
-	# recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
-		try:
-			
-			# using google speech recognition
+		try:			
 			text = r.recognize_google(audio_text)
 			print('Converting audio transcripts into text ...')
 			print(text)
-		
 		except:
 			print('Sorry.. run again...')
 		
-		return Response('hi hi hi')
+		return Response(text)	
+
 
 
 @api_view(['GET'])
