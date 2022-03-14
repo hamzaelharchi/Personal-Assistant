@@ -1,3 +1,4 @@
+
 #views
 import re
 from .models import Task, Chat
@@ -121,3 +122,29 @@ def chatCreate(request):
 			print('Sorry.. run again...')
 		
 		return Response(text)	
+
+
+
+@api_view(['GET'])
+def chatList(request):
+	chat = Chat.objects.all().order_by('-id')
+	serializer = ChatSerializer(chat, many=True)
+	return Response(serializer.data)
+
+@api_view(['GET'])
+def chatDetail(request, pk):
+	chat = Chat.objects.get(id=pk)
+	serializer = ChatSerializer(chat, many=False)
+	return Response(serializer.data)
+
+'''
+@api_view(['POST', 'GET'])
+def chatCreate(request):
+	serializer = ChatSerializer(data=request.data)
+
+	if serializer.is_valid():
+		serializer.save()
+
+	return Response(serializer.data)
+	'''
+
