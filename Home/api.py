@@ -1,11 +1,13 @@
 #views
 import re
+
 from .models import Task, Chat
 from .serializer import  TaskSerializer, ChatSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
 import speech_recognition as sr
+
 
 '''
 @api_view(['GET', 'POST'])
