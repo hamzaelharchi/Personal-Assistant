@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
 import speech_recognition as sr
+from Home.scrapper import *
 
 
 '''
@@ -99,6 +100,23 @@ import base64
 
 import speech_recognition as sr
 
+
+def speach_to_text():
+    r = sr.Recognizer()
+    with sr.AudioFile('record.wav') as source:
+        audio_text = r.listen(source)
+        global text 
+        try:
+            text = r.recognize_google(audio_text)
+            print('Converting audio transcripts into text ...')
+            print(text)
+        except:
+            text='Sorry i did not understand'
+            print(text)
+        #print(text)
+        res=text
+    return str(res)
+
 @api_view(['POST', 'GET'])
 def chatCreate(request):
 	r=request.data[22:]
@@ -106,28 +124,13 @@ def chatCreate(request):
 	wav_file = open("record.wav", "wb")
 	decode_string = base64.b64decode(r)
 	wav_file.write(decode_string)
+	re= chat(speach_to_text())
+
+	return Response(re)
+    
+
+
 	
-	# Initialize recognizer class (for recognizing the speech)
-	r = sr.Recognizer()
-
-	# Reading Audio file as source
-
-	with sr.AudioFile('record.wav') as source:
-		audio_text = r.listen(source)
-		
-		try:			
-			text = r.recognize_google(audio_text)
-			print('Converting audio transcripts into text ...')
-			print(text)
-		except:
-			print('Sorry.. run again...')
-		
-		print(text)
-		res=chat(text)
-		print(res)
-
-		return Response(res)	
-
 
 #######################################################################################
 
@@ -285,6 +288,35 @@ enc_model=load_model('Home\enc_model')
 dec_model=load_model('Home\dec_model')
 
 def chat(message):
+    if 'Sorry i did not understand' in message:
+        return 'Sorry i did not understand'
+    elif 'task' in message:
+        pass
+    elif 'open notepad' in message:
+        open_notepad()
+        return 'ok i am working on it'
+
+
+    elif 'open cmd' in message :
+        open_cmd()
+        return 'ok i am working on it'
+
+
+    elif 'camera' in message:
+        open_camera()
+        return 'ok i am working on it'
+
+    elif 'calculator' in message:
+        open_calculator()
+        return 'ok i am working on it'
+
+
+    elif 'search' in message:
+        first, *middle, last = message.split()
+        search_on_google(last)
+    
+        return 'ok i am working on it'
+    
     states_values = enc_model.predict(
         str_to_tokens(message))
     empty_target_seq = np.zeros((1, 1))
@@ -297,7 +329,7 @@ def chat(message):
         sampled_word_index = np.argmax(dec_outputs[0, -1, :])
         sampled_word = None
         for word, index in tokenizer.word_index.items():
-            if sampled_word_index == index:
+            if sampled_word_index == index:             
                 if word != 'end':
                     decoded_translation += ' {}'.format(word)
                 sampled_word = word

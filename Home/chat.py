@@ -183,5 +183,5 @@ def chat(message):
 
     return decoded_translation
 print('++++++++++++++++++++++++++++++++++++++++++++++++')
-print(chat('hello'))
+print(chat('how are you'))
 print('++++++++++++++++++++++++++++++++++++++++++++++++')
