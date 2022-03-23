@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'corsheaders',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +83,11 @@ WSGI_APPLICATION = 'assistant.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Personal_Assistant',
+        'USER': 'postgres',
+        'PASSWORD':'admin',
+        'HOST':'localhost',
     }
 }
 
