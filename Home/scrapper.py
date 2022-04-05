@@ -16,8 +16,6 @@ def get_weather_report(city):
 
 
 
-def send_whatsapp_message(number, message):
-    kit.sendwhatmsg_instantly(f"+212{number}", message)
 
 
 def play_on_youtube(video):
@@ -48,4 +46,6 @@ def open_camera():
 def open_calculator():
     sp.Popen(paths['calculator'])
 
-get_weather_report('london')
+
+
+#get_weather_report('london')

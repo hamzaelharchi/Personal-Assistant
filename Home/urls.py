@@ -11,7 +11,7 @@ urlpatterns = [
 
     #api
     path('api/tasks/', api.taskList, name='task_list_api'),
-    path('api/tasks/<int:pk>', api.taskDetail, name='task_detail_api'),
+    path('api/tasks/<str:user>/', api.taskDetail, name='task_detail_api'),
 
     path('api/task-create/', api.taskCreate, name="task-create"),
 

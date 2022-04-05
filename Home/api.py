@@ -10,6 +10,7 @@ import speech_recognition as sr
 from Home.scrapper import *
 
 
+
 '''
 @api_view(['GET', 'POST'])
 def user_list_api(request):
@@ -44,10 +45,11 @@ def taskList(request):
 	print(serializer.data)
 	return Response(serializer.data)
 
+
 @api_view(['GET'])
-def taskDetail(request, pk):
-	tasks = Task.objects.get(id=pk)
-	serializer = TaskSerializer(tasks, many=False)
+def taskDetail(request, user):
+	tasks = Task.objects.filter( user=user)
+	serializer = TaskSerializer(tasks, many=True)
 	return Response(serializer.data)
 
 
@@ -268,7 +270,7 @@ output = dec_dense(dec_outputs)
 # model.load_weights('model_small.h5')
 from tensorflow.keras.models import load_model
 
-model=load_model('Home\model_small.h5')
+model=load_model('Home/model_small.h5')
 
 
 
@@ -284,14 +286,21 @@ def str_to_tokens(sentence: str):
                          padding='post')
 
 
-enc_model=load_model('Home\enc_model')
-dec_model=load_model('Home\dec_model')
+enc_model=load_model('Home/enc_model')
+dec_model=load_model('Home/dec_model')
+
 
 def chat(message):
     if 'Sorry i did not understand' in message:
         return 'Sorry i did not understand'
     elif 'task' in message:
         pass
+    elif 'search' in message:
+        first, *middle, last = message.split()
+        search_on_google(last)
+    
+        return 'ok i am working on it'
+    
     elif 'open notepad' in message:
         open_notepad()
         return 'ok i am working on it'
@@ -309,13 +318,9 @@ def chat(message):
     elif 'calculator' in message:
         open_calculator()
         return 'ok i am working on it'
-
-
-    elif 'search' in message:
-        first, *middle, last = message.split()
-        search_on_google(last)
     
-        return 'ok i am working on it'
+
+    
     
     states_values = enc_model.predict(
         str_to_tokens(message))

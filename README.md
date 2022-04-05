@@ -14,3 +14,4 @@ desactivate environment
 
 start django project
 - django-admin startproject assistant .
+    
