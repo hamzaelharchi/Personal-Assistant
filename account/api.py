@@ -21,7 +21,7 @@ class RegisterApi(generics.GenericAPIView):
 @api_view(['GET'])
 def userList(request):
 
-	users = User.objects.all().order_by('-last_login').first()
+	users = User.objects.all().order_by('-date_joined').first()
 	serializer = UserSerializer(users, many=False)
 	print(serializer.data)
     
