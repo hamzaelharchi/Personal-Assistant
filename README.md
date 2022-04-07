@@ -10,7 +10,8 @@ activate environment
 desactivate environment
 - deactivate
 
-- pip freeze
+- pip freeze > requirements.txt
 
 start django project
 - django-admin startproject assistant .
+    
