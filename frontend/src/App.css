@@ -1,0 +1,128 @@
+
+ *{
+  
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth; 
+  
+  
+}
+
+body{
+  /*background: -webkit-linear-gradient(360deg,#383836 10%,#4a4a4a 360%); 
+  background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
+  background-image: url("/Personal-Assistant-React/src/assets/cold.jpeg ");*/
+  background-image: url("assets/back.jpg ");  
+  backdrop-filter: blur(100px);
+
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  
+}
+
+
+.dark-mode{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(40, 44, 94);
+}
+
+#weather{
+  width: 30%;
+  height: 600px;
+  border-radius: 20px;
+ /* background: rgb(130,122,122);
+  background: linear-gradient(180deg, rgba(130,122,122,1) 0%, rgba(221,221,221,1) 90%);
+*/
+}
+
+#chat{
+ /* background: rgb(163,162,162);
+background: linear-gradient(180deg, rgba(163,162,162,1) 0%, rgba(221,221,221,1) 100%);*/
+  width: 40%;
+  height: 600px;
+  border-radius: 20px;
+
+}
+.a{
+  justify-content: space-between;
+}
+
+#todo{/*
+  background: rgb(130,122,122);
+  background: linear-gradient(180deg, rgba(130,122,122,1) 0%, rgba(221,221,221,1) 90%);  width: 30%;*/
+  height: 600px;
+
+  border-radius: 20px;
+
+}
+
+#music{
+  margin-top: -250px;
+  margin-left: 60px;
+  margin-right: 100px;
+  background-color: green;
+  width: 25em;
+  border-radius: 10px;
+  height: 300px;
+
+}
+
+#rating{
+  margin-top: 0px;
+  margin-left: 120px ;
+  margin-right: 120px ;
+  background-color: red;
+  width: 25em;
+  border-radius: 10px;
+  height: 100px;
+
+}
+#time{
+  margin-top: 10px;
+  width: 25em;
+  border-radius: 10px;
+  height: 100px;
+  margin: auto;
+  margin-left: 43%;
+
+
+}
+
+#logout-mode{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+
+
+#mode{
+  margin-left: 30px;
+  
+}
+
+#logout-img{
+  font-size: 1.7em;
+}
+
+#mode-img{
+  margin-top: 15px;
+  font-size: 1.7em;
+}
+
+#todo .container{
+  margin-top: 15px;
+  display: flex;
+}
+
+
+#root{
+  width: 100%;
+  
+}
