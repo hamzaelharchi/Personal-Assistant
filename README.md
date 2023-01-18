@@ -1,17 +1,30 @@
 # Personal-Assistant
-Personal-assitant Web application 
+Personal-assitant  Web voice personal assistant using state-of-the-art NLP algorithms Seq2Seq models
 
-#create virtual environment
+Technologies: 
+    -Django, ReactJS, Tensorflow, Keras,
+    Beautiful soup, Bootstrap, Postgresql, Django REST framework
 
-- python -m venv venv
-activate environment
-- venv\Scripts\activate.bat
 
-desactivate environment
-- deactivate
+## Application Architecture
+<p align="center">
+<img src="docs/App_Architecture.jpg"  width="600"/>
+</p><br>
 
-- pip freeze > requirements.txt
 
-start django project
-- django-admin startproject assistant .
-    
+
+### Run Backend
+```
+cd backend
+pip install -r requirements.txt
+
+#run backend
+python manage.py runserver
+```
+
+### Run Frontend
+```
+cd frontend
+npm start
+```
+
